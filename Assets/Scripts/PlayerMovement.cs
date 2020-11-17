@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement :  MonoBehaviour 
 {
     public Camera camerar;
     public Vector3 PointToMove;
@@ -25,16 +25,19 @@ public class PlayerMovement : MonoBehaviour
     public Transform PulaSpawnPoint;
     public float ShootTimer;
     public bool ShootCanOut;
+
+    public int TipeWeapon=1;
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
+        
         CameraObj.transform.position = Vector3.MoveTowards(CameraObj.transform.position, PlayerObject.transform.position-CamPos, CamSpeed * Time.deltaTime);
         GetRayHitVector();
         PlayerMoveToPoint();
@@ -47,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerObject.transform.rotation = Quaternion.Lerp(PlayerObject.transform.rotation, rotation, SpeerRotLook * Time.deltaTime);
 
         }
-        Shoot();
+        TipeOfShoot(TipeWeapon);
     }
     public void GetRayHitVector()
     {
@@ -111,19 +114,49 @@ public class PlayerMovement : MonoBehaviour
         agent.SetDestination(PointToMove);
         
     }
-    public void Shoot()
+   
+
+    public void TipeOfShoot(int tipe)
     {
-        
         if (ShootCanOut == true)
         {
-            ShootTimer += Time.deltaTime;
-            if (ShootTimer > 0.4f)
+            switch (tipe)
             {
-                Instantiate(PulaObj, PulaSpawnPoint.position, PlayerObject.transform.rotation);
-                ShootCanOut = false;
-                ShootTimer = 0;
+                case 1:
+                    ShootTimer += Time.deltaTime;
+                    if (ShootTimer > 0.4f)
+                    {
+                        Instantiate(PulaObj, PulaSpawnPoint.position, PlayerObject.transform.rotation);
+                        ShootCanOut = false;
+                        ShootTimer = 0;
+                    }
+                    break;
+                case 2:
+                    ShootTimer += Time.deltaTime;
+                    for (int i = 0; i <= 3; i++)
+                    {
+                        if (ShootTimer > 0.1f)
+                        {
+                            Instantiate(PulaObj, PulaSpawnPoint.position, PlayerObject.transform.rotation);
+                            ShootCanOut = false;
+                            ShootTimer = 0;
+                        }
+                    }
+                    break;
+                case 3:
+                    ShootTimer += Time.deltaTime;
+                    if (ShootTimer > 1f)
+                    {
+                        Instantiate(PulaObj, PulaSpawnPoint.position, PlayerObject.transform.rotation);
+                        ShootCanOut = false;
+                        ShootTimer = 0;
+                    }
+
+                    break;
+
             }
         }
+
     }
 }
 
