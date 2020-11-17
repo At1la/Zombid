@@ -50,13 +50,13 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 15590}
+      Script: {instanceID: 11302}
     - Class: 114
-      Script: {instanceID: 18166}
+      Script: {instanceID: 12030}
     - Class: 114
-      Script: {instanceID: 21954}
+      Script: {instanceID: 12362}
     - Class: 114
-      Script: {instanceID: 22940}
+      Script: {instanceID: 13076}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -96,6 +96,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: 51d70248dd4fd34f1b28bb65cec9eb9d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShootFly
   - hash:
       serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
@@ -272,6 +278,12 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
+      Hash: 9341042ecb4215daac2369356b2d657e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyCollader
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -312,6 +324,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 04d8eb07e675eff430b290b1904bc5ac
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerMovement
   - hash:
       serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
@@ -482,6 +500,12 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: dc71499a742df8952242efd6a3fc710b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyMovement
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -492,31 +516,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 703443851037bf0f96cbb5ddc9041ebd
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerMovement
-  - hash:
-      serializedVersion: 2
-      Hash: beeece4f080d663a95b6cc0e7e6f285f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ShootFly
-  - hash:
-      serializedVersion: 2
-      Hash: dc71499a742df8952242efd6a3fc710b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyMovement
-  - hash:
-      serializedVersion: 2
-      Hash: 9341042ecb4215daac2369356b2d657e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: EnemyCollader
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: E:/Jods/Job/Zombid/1.apk
+  playerPath: E:/Jods/Job/Zombid/2.apk

@@ -800,13 +800,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.3096406, y: -0, z: -0, w: 0.9508537}
-  m_LocalPosition: {x: 0, y: 7, z: -7.7}
+  m_LocalRotation: {x: 0.45272198, y: -0, z: -0, w: 0.89165175}
+  m_LocalPosition: {x: 0, y: 9, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 36.075, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 53.837, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,12 +828,14 @@ MonoBehaviour:
   LookRotEnd: 1
   agent: {fileID: 981531915}
   CameraObj: {fileID: 963194225}
-  CamPos: {x: 0, y: -7, z: 7.7}
+  CamPos: {x: 0, y: -9, z: 5}
   CamSpeed: 2
   PulaObj: {fileID: 2728178656010482020, guid: 885de4da4aa2d1d41be9841236ae1769, type: 3}
   PulaSpawnPoint: {fileID: 33438005}
   ShootTimer: 0
   ShootCanOut: 0
+  TipeWeapon: 2
+  LocalCount: 0
 --- !u!1 &981531913
 GameObject:
   m_ObjectHideFlags: 0

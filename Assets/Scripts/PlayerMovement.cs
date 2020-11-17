@@ -27,6 +27,7 @@ public class PlayerMovement :  MonoBehaviour
     public bool ShootCanOut;
 
     public int TipeWeapon=1;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -114,16 +115,18 @@ public class PlayerMovement :  MonoBehaviour
         agent.SetDestination(PointToMove);
         
     }
-   
 
+    [HideInInspector] public int LocalCount = 0;
     public void TipeOfShoot(int tipe)
     {
+            
         if (ShootCanOut == true)
         {
+            ShootTimer += Time.deltaTime;
             switch (tipe)
             {
                 case 1:
-                    ShootTimer += Time.deltaTime;
+                    
                     if (ShootTimer > 0.4f)
                     {
                         Instantiate(PulaObj, PulaSpawnPoint.position, PlayerObject.transform.rotation);
@@ -132,21 +135,42 @@ public class PlayerMovement :  MonoBehaviour
                     }
                     break;
                 case 2:
-                    ShootTimer += Time.deltaTime;
-                    for (int i = 0; i <= 3; i++)
-                    {
-                        if (ShootTimer > 0.1f)
+                   
+                    if (ShootTimer >= 0.5f)
+                        {
+                        if (LocalCount == 0)
                         {
                             Instantiate(PulaObj, PulaSpawnPoint.position, PlayerObject.transform.rotation);
-                            ShootCanOut = false;
-                            ShootTimer = 0;
+                            LocalCount = 1;
                         }
-                    }
+                            if(ShootTimer >= 0.7f)
+                            {
+                            if (LocalCount == 1)
+                            {
+                                Instantiate(PulaObj, PulaSpawnPoint.position, PlayerObject.transform.rotation);
+                                LocalCount = 2;
+                            }
+                            if (ShootTimer >= 0.9f)
+                                {
+                                if (LocalCount == 2)
+                                {
+                                    Instantiate(PulaObj, PulaSpawnPoint.position, PlayerObject.transform.rotation);
+                                }
+                                ShootCanOut = false;
+                                    ShootTimer = 0;
+                                LocalCount = 0;
+                                }
+                            }
+                            
+                        
+                         }
+                   
+
                     break;
                 case 3:
-                    ShootTimer += Time.deltaTime;
+                    
                     if (ShootTimer > 1f)
-                    {
+                    {                        
                         Instantiate(PulaObj, PulaSpawnPoint.position, PlayerObject.transform.rotation);
                         ShootCanOut = false;
                         ShootTimer = 0;

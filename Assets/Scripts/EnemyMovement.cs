@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
 
     public int Hp=100;
     
-    // Start is called before the first frame update
+                                    
     void Start()
     {
         
@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
         PlayerPoint = Me.transform.position;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (Hp <= 0)
@@ -42,6 +42,7 @@ public class EnemyMovement : MonoBehaviour
 
 
         //move
+        if(Hp>0)
         agent.SetDestination(PlayerPoint);
         
     }
