@@ -10,10 +10,14 @@ public class PlayerMovement :  MonoBehaviour
 
 
     public GameObject PlayerObject;
+    public Animator AnimatorPlayer;
     public float  SpeerRotLook;
     public Vector3 DerectionLookAt;
     public Vector3 PointLook;
     public bool LookRotEnd;
+
+    public bool IsMoving;
+    public float Pogreshnosty=0.5f;
 
     public NavMeshAgent agent;
 
@@ -27,6 +31,8 @@ public class PlayerMovement :  MonoBehaviour
     public bool ShootCanOut;
 
     public int TipeWeapon=1;
+
+
     
     // Start is called before the first frame update
     void Start()
@@ -40,9 +46,18 @@ public class PlayerMovement :  MonoBehaviour
         
         
         CameraObj.transform.position = Vector3.MoveTowards(CameraObj.transform.position, PlayerObject.transform.position-CamPos, CamSpeed * Time.deltaTime);
+
         GetRayHitVector();
         PlayerMoveToPoint();
+        TipeOfShoot(TipeWeapon);
+        AnimationController();
 
+        //Проверка движения
+        if ((PlayerObject.transform.position.x+Pogreshnosty >= PointToMove.x)&& (PlayerObject.transform.position.x - Pogreshnosty <= PointToMove.x) && (PlayerObject.transform.position.z+Pogreshnosty >= PointToMove.z) && (PlayerObject.transform.position.z - Pogreshnosty <= PointToMove.z))
+        {
+            IsMoving = false;
+        }
+        //Прицеливание персонажа
         if (LookRotEnd == false)
         {
 
@@ -51,7 +66,7 @@ public class PlayerMovement :  MonoBehaviour
             PlayerObject.transform.rotation = Quaternion.Lerp(PlayerObject.transform.rotation, rotation, SpeerRotLook * Time.deltaTime);
 
         }
-        TipeOfShoot(TipeWeapon);
+        
     }
     public void GetRayHitVector()
     {
@@ -75,6 +90,8 @@ public class PlayerMovement :  MonoBehaviour
                 {
                     PointToMove = hit.point;
                     LookRotEnd = true;
+                    IsMoving = true;
+
                 }
 
             }
@@ -103,6 +120,7 @@ public class PlayerMovement :  MonoBehaviour
                     {
                         PointToMove = hit.point;
                         LookRotEnd = true;
+                        IsMoving = true;
                     }
 
                 }
@@ -126,13 +144,15 @@ public class PlayerMovement :  MonoBehaviour
             switch (tipe)
             {
                 case 1:
-                    
+                    AnimatorPlayer.SetBool("shoot", true);
                     if (ShootTimer > 0.4f)
                     {
                         Instantiate(PulaObj, PulaSpawnPoint.position, PlayerObject.transform.rotation);
                         ShootCanOut = false;
                         ShootTimer = 0;
+                        AnimatorPlayer.SetBool("shoot", false);
                     }
+                    
                     break;
                 case 2:
                    
@@ -182,5 +202,18 @@ public class PlayerMovement :  MonoBehaviour
         }
 
     }
+
+   public void AnimationController()
+    {
+        if (IsMoving)
+        {
+            AnimatorPlayer.SetBool("run", true);
+        }
+        else
+        {
+            AnimatorPlayer.SetBool("run", false);
+        }
+    }
+   
 }
 
